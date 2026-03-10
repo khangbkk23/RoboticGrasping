@@ -1,0 +1,31 @@
+dataset:
+  root_dir: "./data/train_tiny"
+  num_classes: 22
+  image_size: [480, 640]
+  use_depth: true
+  use_normal: true
+
+model: 
+  vision:
+    backbone: "convnext_v2_base"
+    pretrained: true
+    freeze_base: false
+  grasp_head:
+    output_dim: 6
+
+rl_agent:
+  algorithm: "Actor_Critic"
+  actor_lr: 0.0001
+  critic_lr: 0.001
+  gamma: 0.99
+  tau: 0.005
+
+train:
+  batch_size: 4
+  epochs: 100
+  device: "cuda"
+  early_stopping: true
+  patience: 10
+  lr_scheduler:
+    step_size: 20
+    gamma: 0.1
