@@ -24,7 +24,7 @@ def compute_surface_normals(depth_map):
 
 def process_and_save_normals(root_dir):
     root_path = Path(root_dir)
-    depth_files = list(root_path.glob("*-depth.png"))
+    depth_files = list(root_path.rglob("*.depth.png"))
     
     print(f"Bắt đầu xử lý {len(depth_files)} tệp chiều sâu...")
     
