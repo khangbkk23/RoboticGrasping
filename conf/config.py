@@ -15,7 +15,7 @@ class ZeroGraspConfig:
         if not path.exists():
             raise FileNotFoundError(f"Config file not found at {config_path}")
 
-        with open(path, 'r', 'utf-8') as f:
+        with open(path, "r", encoding="utf-8") as f:
             raw_cfg = yaml.safe_load(f)
         
         if raw_cfg is None:
